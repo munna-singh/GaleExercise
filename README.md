@@ -1,0 +1,2 @@
+# GaleExercise
+Python/Django Learning
