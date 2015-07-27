@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Welcome</title>
+	<script type='text/javascript' src='/static/js/jquery-1.9.1.js'></script>
+    <script type="text/javascript" src="/static/js/jquery-ui.js"></script>    
+    <script type="text/javascript" src="/static/js/jquery.mobile-1.4.5.min.js"></script>
+    <script type="text/javascript" src="/static/js/common.js"></script>
+    <link rel="stylesheet" type="text/css" href="/static/css/jquery-ui.css">   
+   <link rel="stylesheet" type="text/css" href="/static/css/jquery.mobile-1.4.5.min.css">
+   <link rel="stylesheet" type="text/css" href="/static/css/common.css">
+</head>
+<body>
+	<table width="70%" border="0" align="center">
+		<tr>
+			<td width="30%" style="vertical-align: text-top;">
+				{% block leftnav %}
+					{% load cache %}
+						{% cache 300 ebook_home_html %}
+					 		{% include 'global/leftnav.html' %}
+					{% endcache %}
+				{% endblock %}
+			</td>
+			<td>&nbsp;&nbsp;</td>
+			<td width="70%" style="vertical-align:top;">
+				 {% block body %}
+					top 10 list</br>
+					sub title
+				 {% endblock %}
+						
+			</td>
+		</tr>
+	</table>
+</body>
+</html>

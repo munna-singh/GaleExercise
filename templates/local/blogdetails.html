@@ -1,0 +1,46 @@
+{% extends "global/master.html" %}
+
+{% block body %}
+
+{% if blog %}
+
+</style>
+<table>
+	<tr>
+		<td> 
+			<h2>{{blog.title}}</h2> 			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{{blog.publication}}&nbsp;|&nbsp;<a href="">{{blog.name}}</a> 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src={{blog.large_image}} style="width:100%; max-height: 450px" />
+		</td>
+	</tr>
+	<tr><td>&nbsp;</td></tr>
+	<tr>
+		<td id="labelText">
+			<table>
+				<tr>
+					<td style="width:70%">
+						{{blog.description}}
+					</td>
+					<td style="vertical-align: text-top;" width="30%" align="right">
+						<img src={{blog.thumbnail}} style="width:300px; max-height: 250px" >
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>	
+	<tr>
+		<td width="40px">
+			{% include 'global/footer.html' %}
+		</td>
+	</tr>
+</table>
+{% endif %}		
+{% endblock %}

@@ -1,0 +1,70 @@
+{% extends "global/master.html" %}
+
+{% block body %}
+
+{% if latest_list %}
+
+</style>
+<table>
+	<tr>
+		<td> 
+			<h2>Top 10 List</h2> 			
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{{latest_list.0.publication}}&nbsp;|&nbsp;<a href="">{{latest_list.0.name}}</a> 
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<img src={{latest_list.0.large_image}} style="width:100%; max-height: 400px" >
+		</td>
+	</tr>
+	<tr>
+		<td id="labelText">
+			{{latest_list.0.description|truncatechars:400}}
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<table>
+			{% for blog in latest_list %}
+				{% if forloop.counter != 1 %}
+					<tr>
+						<td>
+							<div class="numberCircle">{{forloop.counter|add:-1}} </div>
+						</td>
+						<td>
+							<table>
+								<tr>
+									<td id="regularHeading">{{blog.title}}</td>								
+								</tr>
+								<tr>
+									<td id="labelText">
+									{{blog.description|truncatechars:200}}
+									</td
+									
+								</tr>
+								<tr>
+									<td>
+									<a href="/{{blog.pk}}">Call to Action</a>
+									</td
+									
+								</tr>
+							</table>
+						</td>
+					</tr>
+				{% endif %}
+			{% endfor%}
+			</table>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			{% include 'global/footer.html' %}
+		</td>
+	</tr>
+</table>
+{% endif %}		
+{% endblock %}
